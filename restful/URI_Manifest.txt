@@ -1,0 +1,15 @@
+# URI Format and DDS QoS Profile
+#
+# /{Partition}/{Topic}/{Data Type}, {DDS QoS Profile}
+#
+# DDS QoS profiles define the QoS params for topics, publishers, subscribers,
+# readers and writers.  Refer to DDSTopicReaderWriter.java for additional
+# information.
+#
+# DDS_QOS_PROFILE_1 - Default QoS settings
+# DDS_QOS_PROFILE_2 - Defaults + transient durability, history depth of 1
+# DDS_QOS_PROFILE_3 - QoS settings specialized for events
+#
+/*/Planet/DDSSolarSystem.Planet, DDS_QOS_PROFILE_1
+/*/DeltaImageStream/DDSDeltaImageStream.ImageStream, DDS_QOS_PROFILE_1
+/*/FastImageStream/DDSFastImageStream.ImageStream, DDS_QOS_PROFILE_1

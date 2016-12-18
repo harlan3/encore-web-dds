@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# Generate OpenSplice DDS java files
+echo "Generating OpenSplice DDS java files"
+idlpp -S -l java -d ./ DDSSolarSystem.idl 
+
+# Prepare class directory
+mkdir -p class
+rm -rf class/*
+
+# Compile OpenSplice DDS java files
+javac -d ./class DDSSolarSystem/*.java
+
+# Generate jar file
+cd class
+echo "Manifest-Version: 1.0" > tmp
+jar cmf tmp ../../../../restful/lib/DDSSolarSystem.jar DDSSolarSystem
+rm tmp
+cd ..
+
+# Cleanup
+rm -rf class
+rm -rf DDSSolarSystem
+
+echo
+echo "DDSSolarSystem.jar created"

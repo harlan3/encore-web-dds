@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+   <head>
+      <script src="dds_json.js" type="text/javascript"></script>
+   </head>
+   <body>
+      <table>
+         <td>sample:</td>
+         <td>
+            <form action="">
+               <select name="sample #" id="sample">
+               <option value="0">0</option>
+               <option value="1">1</option>
+               <option value="2">2</option>
+               <option value="3">3</option>
+               <option value="4">4</option>
+               <option value="5" selected="selected">5</option>
+               <option value="6">6</option>
+               <option value="7">7</option>
+               <option value="8">8</option>
+               <option value="9">9</option>
+               </select>
+            </form>
+         </td>
+      </tr>
+      <tr><td>planetID:</td><td><input type="text" id="planetID"></td></tr>
+      <tr><td>planetName:</td><td><input type="text" id="planetName"></td></tr>
+      <tr><td>planetColor:</td><td><input type="text" id="planetColor"></td></tr>
+      <tr><td>xPos:</td><td><input type="text" id="xPos"></td></tr>
+      <tr><td>yPos:</td><td><input type="text" id="yPos"></td></tr>
+      <tr><td>theta:</td><td><input type="text" id="theta"></td></tr>
+      <tr><td>planetSize:</td><td><input type="text" id="planetSize"></td></tr>
+      <tr><td>orbitalRadius:</td><td><input type="text" id="orbitalRadius"></td></tr>
+      <tr><td>orbitalVelocity:</td><td><input type="text" id="orbitalVelocity"></td></tr>
+      <tr>
+         <td>
+            <button type="submit" onclick="getReadURI()"/>Get</button>
+            <input type="checkbox" id="autoread"/>Auto<br/>
+         </td>
+         <td>
+            <button style="margin-left:10px;" type="submit" onclick="postWriteURI()"/>Post</button>
+         </td>
+      <tr>
+      </table>
+      <form>
+         <textarea id="dds_json_data" style="width: 50%; height: 50%;"></textarea>
+      </form>
+   </body>
+</html>
+

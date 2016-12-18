@@ -1,0 +1,18 @@
+
+module DDSSolarSystem
+{   
+    struct Planet
+    {
+         long planetId;
+         string planetName;
+         string planetColor;
+         double xPos;
+         double yPos;
+         double theta;
+         double planetSize;
+         double orbitalRadius;
+         double orbitalVelocity;
+    };
+    #pragma keylist Planet planetId
+
+};

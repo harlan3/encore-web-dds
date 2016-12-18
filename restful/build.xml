@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project basedir="." default="build" name="RestfulDDS">
+    <property environment="env"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.6"/>
+    <property name="source" value="1.6"/>
+    <property name="ospl" value="${env.OSPL_HOME}"/>
+    <path id="RestfulDDS.classpath">
+        <pathelement location="bin"/>
+        <pathelement location="./lib/org.restlet.jar"/>
+        <pathelement location="./lib/com.noelios.restlet.jar"/>
+        <pathelement location="./lib/gson-1.7.jar"/>
+        <pathelement location="./lib/DDSSolarSystem.jar"/>
+        <pathelement location="${ospl}/jar/dcpssaj.jar"/>
+    </path>
+    <target name="init">
+        <mkdir dir="bin"/>
+    </target>
+    <target name="clean">
+        <delete dir="bin"/>
+        <delete file="./lib/RestfulDDS.jar"/>
+    </target>
+    <target depends="build-project,dist" name="build"/>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" includeantruntime="false" target="${target}">
+            <src path="src"/>
+            <classpath refid="RestfulDDS.classpath"/>
+        </javac>
+    </target>
+    <target name="RestfulDDS">
+        <java classname="org.opensplice.restful.service.RESTfulDDSMain" failonerror="true" fork="yes">
+            <classpath refid="RestfulDDS.classpath"/>
+        </java>
+    </target>
+    <target name="dist" description="generate the jar file">
+        <jar jarfile="./lib/RestfulDDS.jar" basedir="bin">
+        </jar>
+    </target>
+</project>

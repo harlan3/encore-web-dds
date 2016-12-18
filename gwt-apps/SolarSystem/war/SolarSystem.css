@@ -1,0 +1,41 @@
+/** Add css rules here for your application. */
+
+.tableHeader {
+  background-color: #2062B8;
+  color: white;
+  font-style: italic;
+}
+
+.dataTable {
+  width: 35em;
+}
+
+.dataTableColumn {
+  text-align: center;
+}
+
+.mainPanel {
+  padding: 8px;
+}
+
+.lastUpdatedLabel {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.controlPanelLabel {
+  padding-top: 4px;
+  padding-left: 10px;
+}
+
+.padRight {
+  margin-right: 10px;
+}
+
+.narrowControlTextBox {
+  width: 40px;
+}
+
+.wideControlTextBox {
+  width: 75px;
+}

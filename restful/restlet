@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# Prior to executing this script, the OSPL_HOME environment variable
+# must be set, and the OpenSplice enviornment sourced by executing
+# the file {OSPL_INSTALL_DIRECTORY}/HDE/{platform}/release.sh
+
+# Set the root URI folder
+RESTFUL_DIR=`pwd`
+WWW_ROOT_URI="file://$RESTFUL_DIR/www"
+URI_MANIFEST="$RESTFUL_DIR/URI_Manifest.txt"
+PORT_NUM=8080
+
+# Test for OSPL_HOME env var, required for the script
+if [ -z "$OSPL_HOME" ]
+then
+  echo OpenSplice environment does not appear to be set up -- exiting
+  exit
+fi
+
+# Add the required jars to classpath
+CP=$OSPL_HOME/jar/dcpssaj.jar:./lib/org.restlet.jar:./lib/com.noelios.restlet.jar:./lib/gson-1.7.jar:./lib/RestfulDDS.jar
+
+# Add DDS idl generated data classes/jars here
+CP=$CP:./lib/DDSSolarSystem.jar:./lib/DDSDeltaImageStream.jar:./lib/DDSFastImageStream.jar
+
+# Start the restlet server
+java -cp $CP org.opensplice.restful.service.RESTfulDDSMain $WWW_ROOT_URI $URI_MANIFEST $PORT_NUM
+
