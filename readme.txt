@@ -19,9 +19,8 @@ encourages both OSI and commercial development of GWT web applications
 utilizing the framework.  See the GWT terms-of-use for additional licensing
 details.
 
-Source code is available from the Subversion repository at the project's
-homepage:
-    http://code.google.com/p/encore-web-dds/
+Source code is available from the github repository at the project's
+homepage: https://github.com/harlan3/encore-web-dds.git
 
 Software Prerequisites
 ----------------------
